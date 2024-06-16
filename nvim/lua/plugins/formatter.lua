@@ -12,12 +12,17 @@ return {
 						args = {
 							"-assume-filename=",
 							vim.api.nvim_buf_get_name(0),
-							'-style="{BasedOnStyle: llvm, IndentWidth: 4}"',
+							'-style="{\
+                            BasedOnStyle: microsoft,\
+                            IndentWidth: 4,\
+                            AllowAllParametersOfDeclarationOnNextLine: true,\
+                            AllowShortIfStatementsOnASingleLine: WithoutElse,\
+                            }"',
 						},
 						stdin = true,
 					}
 				end,
-                python = {require("formatter.filetypes.python").autopep8},
+				python = { require("formatter.filetypes.python").autopep8 },
 			},
 		})
 	end,

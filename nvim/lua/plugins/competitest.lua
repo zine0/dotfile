@@ -34,7 +34,7 @@ return {
 		},
 	},
 	runner_ui = {
-		interface = "popup",
+		interface = "split",
 		selector_show_nu = false,
 		selector_show_rnu = false,
 		show_nu = true,
@@ -69,9 +69,9 @@ return {
 		},
 	},
 	split_ui = {
-		position = "right",
+		position = "left",
 		relative_to_editor = true,
-		total_width = 0.3,
+		total_width = 0.2,
 		vertical_layout = {
 			{ 1, "tc" },
 			{ 1, { { 1, "so" }, { 1, "eo" } } },
@@ -107,7 +107,7 @@ return {
 	output_compare_method = "squish",
 	view_output_diff = false,
 
-	testcases_directory = ".",
+	testcases_directory = "./.cph",
 	testcases_use_single_file = true,
 	testcases_auto_detect_storage = true,
 	testcases_single_file_format = "$(FNOEXT).testcases",

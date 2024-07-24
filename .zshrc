@@ -117,3 +117,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+alias cl="clear"
+
+export TERM="xterm-256color"

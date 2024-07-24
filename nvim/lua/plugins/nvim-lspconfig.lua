@@ -6,8 +6,8 @@ return {
 		lspconfig["clangd"].setup({})
 		lspconfig["pyright"].setup({})
 		lspconfig["cmake"].setup({})
-        lspconfig["zls"].setup({})
-        lspconfig["rust_analyzer"].setup({})
+		lspconfig["zls"].setup({})
+		lspconfig["rust_analyzer"].setup({})
 	end,
 	opts = {
 		inlay_hints = { enabled = true },

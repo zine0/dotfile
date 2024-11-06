@@ -31,14 +31,36 @@ return {
 						'-style="{\
                             BasedOnStyle: microsoft,\
                             IndentWidth: 4,\
-                            AllowAllParametersOfDeclarationOnNextLine: true,\
                             AllowShortIfStatementsOnASingleLine: WithoutElse,\
-                            AllowShortLoopsOnASingleLine: true\
-                            AllowAllArgumentsOnNextLine: true\
-                            AllowAllParametersOfDeclarationOnNextLine: true\
-                            BinPackArguments: false\
-                            BinPackParameters: false\
-                            ColumnLimit: 80\
+                            AllowShortLoopsOnASingleLine: true,\
+                            AllowAllArgumentsOnNextLine: true,\
+                            AllowAllParametersOfDeclarationOnNextLine: true,\
+                            BinPackArguments: false,\
+                            BinPackParameters: false,\
+                            ColumnLimit: 80,\
+                            SpaceBeforeParens: Never,\
+                            }"',
+					},
+					stdin = true,
+				}
+			end,
+			c = function()
+				return {
+					exe = "clang-format",
+					args = {
+						"-assume-filename=",
+						vim.api.nvim_buf_get_name(0),
+						'-style="{\
+                            BasedOnStyle: microsoft,\
+                            IndentWidth: 4,\
+                            AllowShortIfStatementsOnASingleLine: WithoutElse,\
+                            AllowShortLoopsOnASingleLine: true,\
+                            AllowAllArgumentsOnNextLine: true,\
+                            AllowAllParametersOfDeclarationOnNextLine: true,\
+                            BinPackArguments: false,\
+                            BinPackParameters: false,\
+                            ColumnLimit: 80,\
+                            SpaceBeforeParens: Never,\
                             }"',
 					},
 					stdin = true,
@@ -49,6 +71,34 @@ return {
 					exe = "autopep8",
 					args = { "-" },
 					stdin = 1,
+				}
+			end,
+			html = function()
+				local util = require("formatter.util")
+				return {
+					exe = "prettier",
+					args = {
+						"--stdin-filepath",
+						util.escape_path(util.get_current_buffer_file_path()),
+						"--tab-width",
+						4,
+					},
+					stdin = true,
+					try_node_modules = true,
+				}
+			end,
+			css = function()
+				local util = require("formatter.util")
+				return {
+					exe = "prettier",
+					args = {
+						"--stdin-filepath",
+						util.escape_path(util.get_current_buffer_file_path()),
+						"--tab-width",
+						4,
+					},
+					stdin = true,
+					try_node_modules = true,
 				}
 			end,
 		},

@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+	event = "VimEnter",
 	opts = function(_, opts)
 		local cmp = require("cmp")
 		cmp.setup({
@@ -10,8 +10,8 @@ return {
 				end,
 			},
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "vsnip" },
@@ -28,6 +28,7 @@ return {
 			},
 		})
 
+		require("luasnip.loaders.from_vscode").lazy_load()
 		return {
 			view = {
 				entries = { name = "custom", selection_order = "near_cursor" },
@@ -36,8 +37,8 @@ return {
 				completeopt = "menu,menuone,preview,noinsert",
 			},
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
 				{ name = "vsnip" },

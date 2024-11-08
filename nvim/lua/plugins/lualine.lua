@@ -5,7 +5,8 @@ return {
         require("lualine").setup({
             options = {
                 theme = "tokyonight",
-                disabled_filetypes = {"NvimTree","sagaoutline"}
+                disabled_filetypes = {"NvimTree","sagaoutline","neo-tree","CompetiTest"},
+                globalstatus = true
             }
 
         })

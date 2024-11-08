@@ -1,12 +1,16 @@
 return {
 	"xeluxee/competitest.nvim",
 	dependencies = "MunifTanjim/nui.nvim",
-    keys = {
-        {"<leader>cgp","<Cmd>CompetiTest receive problem<CR>",desc = "Receive Problem"},
-        {"<leader>cgc","<Cmd>CompetiTest receive contest<CR>",desc = "Receive Contest"},
-        {"<leader>cgt","<Cmd>CompetiTest receive testcases<CR>",desc = "Receive Testcases"},
-        {"<leader>cr","<Cmd>CompetiTest run<CR>",desc = "CompetiTest run"},
-    },
+	keys = {
+		{ "<leader>cgp", "<Cmd>CompetiTest receive problem<CR>", desc = "Receive Problem" },
+		{ "<leader>cgc", "<Cmd>CompetiTest receive contest<CR>", desc = "Receive Contest" },
+		{ "<leader>cgt", "<Cmd>CompetiTest receive testcases<CR>", desc = "Receive Testcases" },
+		{ "<leader>cr", "<Cmd>CompetiTest run<CR>", desc = "CompetiTest run" },
+	},
+		cmd = "CompetiTest",
+		-- "CompetiTest receive contest",
+		-- "CompetiTest receive testcases",
+		-- "CompetiTest run",
 	opts = {
 		local_config_file_name = ".competitest.lua",
 
@@ -94,8 +98,8 @@ return {
 		save_all_files = false,
 		compile_directory = ".",
 		compile_command = {
-			c = { exec = "clang", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-			cpp = { exec = "clang++", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)", "--std", "c++17" } },
+			c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+			cpp = { exec = "g++", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)", "--std", "c++17" } },
 			rust = { exec = "rustc", args = { "$(FNAME)" } },
 			java = { exec = "javac", args = { "$(FNAME)" } },
 		},

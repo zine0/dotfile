@@ -22,6 +22,7 @@ export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+fpath+=$ZSH_CUSTOM/plugins/conda-zsh-completion
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -83,7 +84,7 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
+#   
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -116,7 +117,7 @@ source $ZSH/oh-my-zsh.sh
 alias cl="clear"
 
 export TERM="xterm-256color"
-
+export FZF_COMPLETION_TRIGGER='/'
 source <(fzf --zsh)
 export PATH=$HOME/.local/bin:$PATH
 

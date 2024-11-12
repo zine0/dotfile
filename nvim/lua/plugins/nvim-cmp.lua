@@ -3,6 +3,7 @@ return {
 	event = "VimEnter",
 	opts = function(_, opts)
 		local cmp = require("cmp")
+		-- `:` cmdline setup.
 		cmp.setup({
 			snippet = {
 				expand = function(args)
@@ -16,16 +17,31 @@ return {
 				{ name = "path" },
 				{ name = "vsnip" },
 			}),
-			formatting = {
-				format = require("lspkind").cmp_format({
-					with_text = true,
-					maxwidth = 50, -- do not show text alongside icons
-					before = function(entry, vim_item)
-						vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-						return vim_item
-					end,
-				}),
+			-- formatting = {
+			-- 	format = require("lspkind").cmp_format({
+			-- 		with_text = true,
+			-- 		maxwidth = 50, -- do not show text alongside icons
+			-- 		before = function(entry, vim_item)
+			-- 			vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+			-- 			return vim_item
+			-- 		end,
+			-- 	}),
+			-- },
+		})
+
+		cmp.setup.cmdline(":", {
+			mapping = {
+				["<Tab>"] = cmp.mapping.confirm({ select = false }),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<Down>"] = cmp.mapping.select_next_item(),
+				["<Up>"] = cmp.mapping.select_prev_item(),
 			},
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
+			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 
 		require("luasnip.loaders.from_vscode").lazy_load()

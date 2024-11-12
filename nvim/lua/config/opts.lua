@@ -18,6 +18,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = false -- no fold to be applied when open a file
 vim.opt.foldlevel = 99
+vim.o.showtabline = 2
 -- This module contains a number of default definitions
 local rainbow_delimiters = require("rainbow-delimiters")
 

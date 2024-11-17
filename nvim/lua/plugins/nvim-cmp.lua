@@ -29,21 +29,6 @@ return {
 			-- },
 		})
 
-		cmp.setup.cmdline(":", {
-			mapping = {
-				["<Tab>"] = cmp.mapping.confirm({ select = false }),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<Down>"] = cmp.mapping.select_next_item(),
-				["<Up>"] = cmp.mapping.select_prev_item(),
-			},
-			sources = cmp.config.sources({
-				{ name = "path" },
-			}, {
-				{ name = "cmdline" },
-			}),
-			matching = { disallow_symbol_nonprefix_matching = false },
-		})
-
 		require("luasnip.loaders.from_vscode").lazy_load()
 		return {
 			view = {
@@ -62,8 +47,8 @@ return {
 			mapping = {
 				["<Tab>"] = cmp.mapping.confirm({ select = false }),
 				["<C-e>"] = cmp.mapping.abort(),
-				["<Down>"] = cmp.mapping.select_next_item(),
-				["<Up>"] = cmp.mapping.select_prev_item(),
+				["<C-k>"] = cmp.mapping.select_next_item(),
+				["<C-j>"] = cmp.mapping.select_prev_item(),
 			},
 		}
 	end,

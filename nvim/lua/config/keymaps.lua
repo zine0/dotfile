@@ -20,7 +20,7 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", opt)
 
 keymap("n", "zz", "za", opt)
 
-keymap("n", "<leader>t", "<Cmd>Neotree toggle<CR>", opt)
+keymap("n", "<leader>tt", "<Cmd>Neotree toggle<CR>", opt)
 
 keymap("n", "<leader>tn", "<Cmd>tabnew<CR>", opt)
 keymap("n", "<leader>tc", "<Cmd>tabclose<CR>", opt)

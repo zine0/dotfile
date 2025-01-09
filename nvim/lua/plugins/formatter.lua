@@ -28,18 +28,7 @@ return {
 					args = {
 						"-assume-filename=",
 						vim.api.nvim_buf_get_name(0),
-						'-style="{\
-                            BasedOnStyle: microsoft,\
-                            IndentWidth: 4,\
-                            AllowShortIfStatementsOnASingleLine: WithoutElse,\
-                            AllowShortLoopsOnASingleLine: true,\
-                            AllowAllArgumentsOnNextLine: true,\
-                            AllowAllParametersOfDeclarationOnNextLine: true,\
-                            BinPackArguments: false,\
-                            BinPackParameters: false,\
-                            ColumnLimit: 80,\
-                            SpaceBeforeParens: Never,\
-                            }"',
+						"-style=file",
 					},
 					stdin = true,
 				}
@@ -50,18 +39,7 @@ return {
 					args = {
 						"-assume-filename=",
 						vim.api.nvim_buf_get_name(0),
-						'-style="{\
-                            BasedOnStyle: microsoft,\
-                            IndentWidth: 4,\
-                            AllowShortIfStatementsOnASingleLine: WithoutElse,\
-                            AllowShortLoopsOnASingleLine: true,\
-                            AllowAllArgumentsOnNextLine: true,\
-                            AllowAllParametersOfDeclarationOnNextLine: true,\
-                            BinPackArguments: false,\
-                            BinPackParameters: false,\
-                            ColumnLimit: 80,\
-                            SpaceBeforeParens: Never,\
-                            }"',
+						"-style=file",
 					},
 					stdin = true,
 				}
@@ -99,6 +77,17 @@ return {
 					},
 					stdin = true,
 					try_node_modules = true,
+				}
+			end,
+			htmldjango= function()
+				local util = require("formatter.util")
+				return {
+					exe = "djlint",
+					args = {
+						"--reformat",
+						"-",
+					},
+					stdin = true,
 				}
 			end,
 		},
